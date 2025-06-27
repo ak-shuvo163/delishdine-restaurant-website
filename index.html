@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DelishDine - Cafe & Restaurant</title>
+
+    <!--SEO meta description-->
+    <meta name="description" content="Welcome to DelishDine - a modern cafe & restaurant offering delicious food, cozy ambience, and top-notch service. Browse our menu and visit us today!" />
+    <meta name="author" content="AK Shuvo" />
+    <meta name="keywords" content="restaurant, cafe, food, DelishDine, menu, coffee, snacks, desserts, web developer portfolio, HTML, CSS, Tailwind, Bootstrap" />
+
+    <!--Open Graph for Social Sharing-->
+    <meta property="og:title" content="DelishDine - Cafe & Restaurant" />
+    <meta property="og:image" content="https://your-image-url.jpg" />
+    <meta property="og:url" content="https://ak-shuvo163.github.io/DelishDine/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:description" content="Discover a delightful dining experience at DelishDine." />
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS (local) -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Bootstrap (only if needed) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300">
+
+    <!-- 🌐 Responsive Navbar -->
+    <nav
+        class="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/90 backdrop-blur-md shadow-md transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="group flex items-center gap-2">
+                <i
+                    class="fas fa-utensils text-yellow-500 me-3 text-3xl transform group-hover:rotate-12 transition-transform duration-300"></i>
+                <span
+                    class="logo-text-3d font-bold text-2xl md:text-3xl text-gray-900 dark:text-white">DelishDine</span>
+            </a>
+
+            <!-- Right-side icons -->
+            <div class="flex items-center gap-4">
+                <!-- 🌙 Dark Mode Toggle -->
+                <button id="dark-toggle"
+                    class="text-xl text-gray-700 dark:text-white hover:text-yellow-500 transition-colors">
+                    <i id="theme-icon" class="fas fa-moon"></i>
+                </button>
+
+                <!-- Hamburger (Mobile) -->
+                <div class="lg:hidden cursor-pointer" id="menu-toggle">
+                    <i class="fas fa-bars text-2xl text-gray-700 dark:text-white"></i>
+                </div>
+            </div>
+
+            <!-- Desktop Nav -->
+            <ul id="nav-links" class="hidden lg:flex gap-6 font-medium text-gray-900 dark:text-white">
+                <li><a href="#"
+                        class="block px-2 py-1 hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors lg:hover:underline lg:hover:decoration-yellow-400 lg:hover:decoration-2 lg:hover:underline-offset-4 lg:transition-[text-decoration-thickness] lg:transition-[text-underline-offset] lg:duration-300 lg:ease-in-out">Home</a>
+                </li>
+                <li><a href="#about"
+                        class="block px-2 py-1 hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors lg:hover:underline lg:hover:decoration-yellow-400 lg:hover:decoration-2 lg:hover:underline-offset-4 lg:transition-[text-decoration-thickness] lg:transition-[text-underline-offset] lg:duration-300 lg:ease-in-out">About</a>
+                </li>
+                <li><a href="#menu"
+                        class="block px-2 py-1 hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors lg:hover:underline lg:hover:decoration-yellow-400 lg:hover:decoration-2 lg:hover:underline-offset-4 lg:transition-[text-decoration-thickness] lg:transition-[text-underline-offset] lg:duration-300 lg:ease-in-out">Menu</a>
+                </li>
+                <li><a href="#contact"
+                        class="block px-2 py-1 hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors lg:hover:underline lg:hover:decoration-yellow-400 lg:hover:decoration-2 lg:hover:underline-offset-4 lg:transition-[text-decoration-thickness] lg:transition-[text-underline-offset] lg:duration-300 lg:ease-in-out">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Mobile Menu -->
+        <ul id="mobile-menu"
+            class="lg:hidden max-w-7xl mx-auto px-4 font-medium space-y-3 transition-all duration-300 ease-in-out overflow-hidden max-h-0 opacity-0 bg-gray-100 dark:bg-gray-700 border-t border-gray-200 dark:border-gray-600">
+            <li><a href="#"
+                    class="block px-2 py-2 text-gray-800 dark:text-white hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors rounded-md hover:bg-gray-200 dark:hover:bg-gray-600">Home</a>
+            </li>
+            <li><a href="#about"
+                    class="block px-2 py-2 text-gray-800 dark:text-white hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors rounded-md hover:bg-gray-200 dark:hover:bg-gray-600">About</a>
+            </li>
+            <li><a href="#menu"
+                    class="block px-2 py-2 text-gray-800 dark:text-white hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors rounded-md hover:bg-gray-200 dark:hover:bg-gray-600">Menu</a>
+            </li>
+            <li><a href="#contact"
+                    class="block px-2 py-2 text-gray-800 dark:text-white hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors rounded-md hover:bg-gray-200 dark:hover:bg-gray-600">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- 🖼 Hero Section -->
+    <header id="hero-parallax"
+        class="hero relative text-center py-24 md:py-32 bg-cover bg-center bg-no-repeat transition duration-300"
+        style="background-image: url('assets/images/5_tem-rysh-F6-U5fGAOik-unsplash.jpg'); background-blend-mode: overlay; will-change: background-position;">
+        <!-- Overlay: only subtle dark/light -->
+        <div class="absolute inset-0 bg-black/35 dark:bg-black/55"></div>
+        <!-- Subtle floating food icons (smaller, more subtle, or remove if needed) -->
+        <div class="absolute left-6 top-8 animate-bounce-slow text-3xl opacity-15 select-none pointer-events-none">🍕
+        </div>
+        <div class="absolute right-10 top-20 animate-float text-2xl opacity-10 select-none pointer-events-none">🍔</div>
+        <div class="absolute left-1/2 bottom-8 animate-bounce-x text-4xl opacity-10 select-none pointer-events-none">🍩
+        </div>
+        <!-- Text content -->
+        <div class="relative z-10 max-w-2xl mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-2 animate-hero-pop text-white drop-shadow-xl">
+                Welcome to <span
+                    class="delish-gradient block md:inline animate-gradient-text bg-gradient-to-r from-yellow-400 via-pink-500 to-orange-500 bg-clip-text text-transparent drop-shadow-xl">DelishDine</span>
+            </h1>
+            <p
+                class="text-lg md:text-2xl font-semibold mb-8 flex justify-center items-center min-h-[2.5rem] text-white drop-shadow-xl">
+                <span id="typewriter-text" class="whitespace-pre"></span>
+                <span class="ml-1 text-yellow-400 animate-heartbeat">🍽️</span>
+            </p>
+            <a href="#menu"
+                class="main-btn mt-8 inline-block text-lg md:text-xl px-8 py-4 rounded-2xl shadow-xl bg-yellow-500 hover:bg-yellow-600 hover:scale-105 transition-all duration-300 animate-pulse-glow">
+                <span class="btn-text font-bold tracking-wide flex items-center gap-2"><i
+                        class="fas fa-utensils animate-bounce"></i> View Our Menu</span>
+            </a>
+        </div>
+    </header>
+
+    <!--about Sections -->
+    <section id="about"
+        class="py-16 bg-gray-100 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-white relative overflow-hidden transition duration-300">
+        <!-- Animated Background Elements (Dark Mode Only) -->
+        <div class="absolute inset-0 dark:block hidden">
+            <div
+                class="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 opacity-10 rounded-full blur-3xl animate-pulse">
+            </div>
+            <div
+                class="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-tr from-purple-500 to-pink-500 opacity-10 rounded-full blur-3xl animate-pulse delay-1000">
+            </div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+
+            <!-- 📸 Image -->
+            <div class="w-full transform hover:scale-105 transition-transform duration-500">
+                <img src="assets/images/10_side_Screenshot 2025-06-20 225027.png" alt="About Us"
+                    class="rounded-xl shadow-2xl w-full h-auto object-cover border-2 border-transparent dark:border-yellow-400/20" />
+            </div>
+
+            <!-- 📝 Text -->
+            <div>
+                <h2 class="section-title mb-6">About Us</h2>
+                <p class="about-text text-lg mb-4 leading-relaxed text-gray-800 dark:text-gray-300">At <strong
+                        class="text-yellow-500 dark:text-yellow-400">DelishDine</strong>, we believe great food
+                    brings people together. Our chefs prepare each dish with love using the freshest ingredients,
+                    ensuring every bite is memorable.</p>
+                <p class="about-text text-md text-gray-600 dark:text-gray-400">Whether you're enjoying breakfast, lunch,
+                    or dinner — we're here to serve
+                    you the best food experience in town. Come hungry, leave happy!</p>
+                <a href="#menu" class="main-btn mt-6 inline-flex items-center gap-2">View
+                    Our Menu <i class="fas fa-utensils"></i></a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 🍽️ Cafe Menu Section -->
+    <section id="menu"
+        class="py-16 bg-gray-100 dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 text-gray-800 dark:text-white relative overflow-hidden transition">
+        <!-- Animated Background Elements (Dark Mode Only) -->
+        <div class="absolute inset-0 dark:block hidden">
+            <div
+                class="absolute top-20 right-20 w-28 h-28 bg-gradient-to-br from-blue-400 to-cyan-500 opacity-10 rounded-full blur-2xl animate-bounce">
+            </div>
+            <div
+                class="absolute bottom-20 left-20 w-36 h-36 bg-gradient-to-tr from-green-400 to-teal-500 opacity-10 rounded-full blur-3xl animate-pulse delay-500">
+            </div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+            <h2 class="section-title mb-4">Our Menu</h2>
+            <p class="menu-desc text-gray-600 dark:text-gray-300 mb-10">
+                Freshly brewed coffees, delicious snacks, and
+                sweet desserts to brighten your day ☕🍪🍰</p>
+            <!-- 🧃 Filter Buttons -->
+            <div class="flex justify-center gap-4 mb-10 flex-wrap">
+                <button class="filter-btn active" data-filter="all">🌟 All</button>
+                <button class="filter-btn" data-filter="coffee">☕ Coffee</button>
+                <button class="filter-btn" data-filter="snack">🍪 Snacks</button>
+                <button class="filter-btn" data-filter="dessert">🍰 Desserts</button>
+            </div>
+
+            <!-- 🍩 Menu Items Grid -->
+            <div id="menu-items" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- ☕ Coffee Items -->
+                <div
+                    class="menu-card coffee bg-white dark:bg-gray-800/80 backdrop-blur-sm p-4 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl hover:border-yellow-400/30">
+                    <img src="assets/images/7_side_Screenshot 2025-06-20 224832.png" alt="Latte"
+                        class="w-full h-40 object-cover rounded-md mb-4">
+                    <div class="flex justify-between items-center mb-1">
+                        <h4 class="menu-item-title font-semibold text-yellow-500 dark:text-yellow-400">Caramel Latte
+                        </h4>
+                        <span class="menu-item-price text-sm font-semibold text-gray-800 dark:text-white">4.50</span>
+                    </div>
+                    <p class="menu-item-desc text-sm text-gray-600 dark:text-gray-300">Espresso with caramel and steamed
+                        milk.</p>
+                    <button class="order-btn mt-4">
+                        Order Now
+                    </button>
+                </div>
+
+                <div
+                    class="menu-card coffee bg-white dark:bg-gray-800/80 backdrop-blur-sm p-4 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl hover:border-yellow-400/30">
+                    <img src="assets/images/6_side_Screenshot 2025-06-20 224719.png" alt="Mocha"
+                        class="w-full h-40 object-cover rounded-md mb-4">
+                    <div class="flex justify-between items-center mb-1">
+                        <h4 class="menu-item-title font-semibold text-yellow-500 dark:text-yellow-400">Iced Mocha</h4>
+                        <span class="menu-item-price text-sm font-semibold text-gray-800 dark:text-white">2.50</span>
+                    </div>
+                    <p class="menu-item-desc text-sm text-gray-600 dark:text-gray-300">Chocolate-infused chilled coffee
+                        with cream.</p>
+                    <button class="order-btn mt-4">
+                        Order Now
+                    </button>
+                </div>
+
+                <!-- 🥐 Snacks -->
+                <div
+                    class="menu-card snack bg-white dark:bg-gray-800/80 backdrop-blur-sm p-4 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl hover:border-yellow-400/30">
+                    <img src="assets/images/snacks_1_skon-communication-SrgA_fMDUtQ-unsplash.jpg" alt="Croissant"
+                        class="w-full h-40 object-cover rounded-md mb-4">
+                    <div class="flex justify-between items-center mb-1">
+                        <h4 class="menu-item-title font-semibold text-yellow-500 dark:text-yellow-400">Butter Croissant
+                        </h4>
+                        <span class="menu-item-price text-sm font-semibold text-gray-800 dark:text-white">3.50</span>
+                    </div>
+                    <p class="menu-item-desc text-sm text-gray-600 dark:text-gray-300">Freshly baked, flaky and golden
+                        croissant.</p>
+                    <button class="order-btn mt-4">
+                        Order Now
+                    </button>
+                </div>
+
+                <div
+                    class="menu-card snack bg-white dark:bg-gray-800/80 backdrop-blur-sm p-4 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl hover:border-yellow-400/30">
+                    <img src="assets/images/sandwiz_1_Screenshot 2025-06-21 040002.png" alt="Sandwich"
+                        class="w-full h-40 object-cover rounded-md mb-4">
+                    <div class="flex justify-between items-center mb-1">
+                        <h4 class="menu-item-title font-semibold text-yellow-500 dark:text-yellow-400">Chicken Sandwich
+                        </h4>
+                        <span class="menu-item-price text-sm font-semibold text-gray-800 dark:text-white">2.50</span>
+                    </div>
+                    <p class="menu-item-desc text-sm text-gray-600 dark:text-gray-300">Grilled chicken with lettuce and
+                        mayo.</p>
+                    <button class="order-btn mt-4">
+                        Order Now
+                    </button>
+                </div>
+
+                <!-- 🍰 Desserts -->
+                <div
+                    class="menu-card dessert bg-white dark:bg-gray-800/80 backdrop-blur-sm p-4 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl hover:border-yellow-400/30">
+                    <img src="assets/images/browine_1_wan-05mbwyYMVQY-unsplash.jpg" alt="Brownie"
+                        class="w-full h-40 object-cover rounded-md mb-4">
+                    <div class="flex justify-between items-center mb-1">
+                        <h4 class="menu-item-title font-semibold text-yellow-500 dark:text-yellow-400">Fudge Brownie
+                        </h4>
+                        <span class="menu-item-price text-sm font-semibold text-gray-800 dark:text-white">4.50</span>
+                    </div>
+                    <p class="menu-item-desc text-sm text-gray-600 dark:text-gray-300">Rich, chocolate brownie with a
+                        gooey center.</p>
+                    <button class="order-btn mt-4">
+                        Order Now
+                    </button>
+                </div>
+
+                <div
+                    class="menu-card dessert bg-white dark:bg-gray-800/80 backdrop-blur-sm p-4 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl hover:border-yellow-400/30">
+                    <img src="assets/images/Strawberry_Cheesecake_Screenshot 2025-06-21 040911.png" alt="Cheesecake"
+                        class="w-full h-40 object-cover rounded-md mb-4">
+                    <div class="flex justify-between items-center mb-1">
+                        <h4 class="menu-item-title font-semibold text-yellow-500 dark:text-yellow-400">Strawberry
+                            Cheesecake</h4>
+                        <span class="menu-item-price text-sm font-semibold text-gray-800 dark:text-white">5.50</span>
+                    </div>
+                    <p class="menu-item-desc text-sm text-gray-600 dark:text-gray-300">Creamy cheesecake topped with
+                        berries.</p>
+                    <button class="order-btn mt-4">
+                        Order Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact"
+        class="py-12 px-2 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-white relative overflow-hidden transition">
+        <!-- Animated Background Elements (Dark Mode Only) -->
+        <div class="absolute inset-0 dark:block hidden">
+            <div
+                class="absolute top-10 left-10 w-24 h-24 bg-gradient-to-br from-blue-400 to-cyan-500 opacity-10 rounded-full blur-2xl animate-pulse">
+            </div>
+            <div
+                class="absolute bottom-10 right-10 w-32 h-32 bg-gradient-to-tr from-purple-500 to-pink-500 opacity-10 rounded-full blur-3xl animate-pulse delay-1000">
+            </div>
+        </div>
+
+        <div
+            class="relative z-10 max-w-xl mx-auto rounded-2xl shadow-xl bg-white/80 dark:bg-gray-800/90 backdrop-blur-md p-6 md:p-8 border border-blue-100 dark:border-gray-700/50 relative overflow-hidden contact-glass">
+            <div
+                class="absolute -top-10 -left-10 w-32 h-32 bg-gradient-to-br from-blue-400 to-blue-200 opacity-30 dark:opacity-20 rounded-full blur-2xl animate-pulse">
+            </div>
+            <div
+                class="absolute -bottom-10 -right-10 w-32 h-32 bg-gradient-to-tr from-blue-600 to-blue-300 opacity-20 dark:opacity-15 rounded-full blur-2xl animate-pulse">
+            </div>
+            <div class="text-center mb-8 relative z-10">
+                <div class="flex justify-center mb-2">
+                    <span
+                        class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-300 shadow-lg animate-bounce">
+                        <i class="fas fa-envelope text-2xl text-white drop-shadow"></i>
+                    </span>
+                </div>
+                <h2 class="section-title mb-2">Contact Us</h2>
+                <p class="text-gray-600 dark:text-gray-300">Have a question, feedback, or want to book a table? Fill out
+                    the form below and we'll get back to you soon!</p>
+            </div>
+            <form id="contactForm" class="space-y-6 relative z-10">
+                <div class="relative">
+                    <input type="text" id="contactName" name="contactName" required
+                        class="peer w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-700/80 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-400 outline-none placeholder-transparent transition"
+                        placeholder="Your Name">
+                    <label for="contactName"
+                        class="absolute left-4 top-3 text-gray-500 dark:text-gray-400 text-sm pointer-events-none transition-all peer-focus:-top-5 peer-focus:text-xs peer-focus:text-blue-600 dark:peer-focus:text-blue-400 peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-400">Name
+                        <span class="text-red-500">*</span></label>
+                </div>
+                <div class="relative">
+                    <input type="email" id="contactEmail" name="contactEmail" required
+                        class="peer w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-700/80 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-400 outline-none placeholder-transparent transition"
+                        placeholder="you@email.com">
+                    <label for="contactEmail"
+                        class="absolute left-4 top-3 text-gray-500 dark:text-gray-400 text-sm pointer-events-none transition-all peer-focus:-top-5 peer-focus:text-xs peer-focus:text-blue-600 dark:peer-focus:text-blue-400 peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-400">Email
+                        <span class="text-red-500">*</span></label>
+                </div>
+                <div class="relative">
+                    <input type="tel" id="contactPhone" name="contactPhone" required pattern="[0-9]{11,15}"
+                        class="peer w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-700/80 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-400 outline-none placeholder-transparent transition"
+                        placeholder="01XXXXXXXXX">
+                    <label for="contactPhone"
+                        class="absolute left-4 top-3 text-gray-500 dark:text-gray-400 text-sm pointer-events-none transition-all peer-focus:-top-5 peer-focus:text-xs peer-focus:text-blue-600 dark:peer-focus:text-blue-400 peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-400">Phone
+                        <span class="text-red-500">*</span></label>
+                </div>
+                <div class="relative">
+                    <textarea id="contactMessage" name="contactMessage" required rows="4"
+                        class="peer w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-700/80 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-400 outline-none placeholder-transparent transition"
+                        placeholder="Type your message..."></textarea>
+                    <label for="contactMessage"
+                        class="absolute left-4 top-3 text-gray-500 dark:text-gray-400 text-sm pointer-events-none transition-all peer-focus:-top-5 peer-focus:text-xs peer-focus:text-blue-600 dark:peer-focus:text-blue-400 peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-400">Message
+                        <span class="text-red-500">*</span></label>
+                </div>
+                <div id="contactError" class="text-red-500 text-sm hidden"></div>
+                <button type="submit"
+                    class="main-btn w-full py-3 rounded-lg text-white font-bold text-lg shadow-xl transition transform hover:scale-105">Send
+                    Message</button>
+                <div id="contactSuccess" class="text-green-600 text-center font-semibold mt-2 hidden">Thank you! Your
+                    message has been sent. 💌</div>
+            </form>
+        </div>
+    </section>
+
+    <!-- 🦶 Premium Animated Footer -->
+    <footer class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0">
+            <div
+                class="absolute top-10 left-10 w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 opacity-10 rounded-full blur-2xl animate-pulse">
+            </div>
+            <div
+                class="absolute bottom-10 right-10 w-24 h-24 bg-gradient-to-tr from-purple-500 to-pink-500 opacity-10 rounded-full blur-2xl animate-pulse delay-1000">
+            </div>
+        </div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-2 py-4 md:px-4 md:py-12">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mb-6 md:mb-8">
+
+                <!-- 🏠 Address Section -->
+                <div class="footer-section group flex flex-col items-center text-center gap-1">
+                    <div class="flex items-center justify-center mb-2">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center mr-2 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-map-marker-alt text-white text-lg"></i>
+                        </div>
+                        <h3
+                            class="text-lg font-bold bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                            Our Location</h3>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed hover:text-white transition-colors duration-300 text-sm">
+                        123 Cafe Street<br>
+                        Dhaka, BD<br>
+                        <span class="text-yellow-400 font-semibold text-xs">Open Daily: 8AM - 10PM</span>
+                    </p>
+                </div>
+
+                <!-- 📞 Contact Section -->
+                <div class="footer-section group flex flex-col items-center text-center gap-1">
+                    <div class="flex items-center justify-center mb-2">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-lg flex items-center justify-center mr-2 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-phone-alt text-white text-lg"></i>
+                        </div>
+                        <h3
+                            class="text-lg font-bold bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent">
+                            Contact Info</h3>
+                    </div>
+                    <div class="space-y-1">
+                        <a href="tel:+8801923184970"
+                            class="flex items-center justify-center text-gray-300 hover:text-white transition-colors duration-300 group/item text-sm">
+                            <i
+                                class="fas fa-phone text-yellow-400 mr-2 group-hover/item:scale-110 transition-transform"></i>
+                            <span>+880-1923184970</span>
+                        </a>
+                        <a href="mailto:akshuvo163@gmail.com"
+                            class="flex items-center justify-center text-gray-300 hover:text-white transition-colors duration-300 group/item text-sm">
+                            <i
+                                class="fas fa-envelope text-yellow-400 mr-2 group-hover/item:scale-110 transition-transform"></i>
+                            <span>akshuvo163@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 🔗 Quick Links Section -->
+                <div class="footer-section group flex flex-col items-center text-center gap-1">
+                    <div class="flex items-center justify-center mb-2">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg flex items-center justify-center mr-2 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-link text-white text-lg"></i>
+                        </div>
+                        <h3
+                            class="text-lg font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+                            Quick Links</h3>
+                    </div>
+                    <ul class="space-y-1">
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-yellow-400 transition-colors duration-300 flex items-center justify-center group/item text-sm">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover/item:translate-x-1 transition-transform"></i>
+                                Home
+                            </a></li>
+                        <li><a href="#about"
+                                class="text-gray-300 hover:text-yellow-400 transition-colors duration-300 flex items-center justify-center group/item text-sm">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover/item:translate-x-1 transition-transform"></i>
+                                About
+                            </a></li>
+                        <li><a href="#menu"
+                                class="text-gray-300 hover:text-yellow-400 transition-colors duration-300 flex items-center justify-center group/item text-sm">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover/item:translate-x-1 transition-transform"></i>
+                                Menu
+                            </a></li>
+                        <li><a href="#contact"
+                                class="text-gray-300 hover:text-yellow-400 transition-colors duration-300 flex items-center justify-center group/item text-sm">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover/item:translate-x-1 transition-transform"></i>
+                                Contact
+                            </a></li>
+                    </ul>
+                </div>
+
+                <!-- 📱 Social Media Section -->
+                <div class="footer-section group flex flex-col items-center text-center gap-1">
+                    <div class="flex items-center justify-center mb-2">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-green-400 to-teal-500 rounded-lg flex items-center justify-center mr-2 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-share-alt text-white text-lg"></i>
+                        </div>
+                        <h3
+                            class="text-lg font-bold bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent">
+                            Follow Us</h3>
+                    </div>
+                    <div class="flex space-x-3 justify-center">
+                        <a href="#"
+                            class="social-icon bg-gradient-to-br from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="social-icon bg-gradient-to-br from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-pink-500/25">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#"
+                            class="social-icon bg-gradient-to-br from-blue-400 to-blue-500 hover:from-blue-300 hover:to-blue-400 text-white w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-400/25">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-700 mb-4 md:mb-6"></div>
+
+            <!-- Copyright Section -->
+            <div class="text-center">
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 gap-2">
+                    <p class="text-gray-400 text-sm">
+                        © 2025 <span class="text-yellow-400 font-bold">DelishDine</span>. All rights reserved.
+                    </p>
+                    <div class="flex items-center justify-center space-x-2 text-gray-400 text-sm">
+                        <i class="fas fa-heart text-red-400 animate-pulse"></i>
+                        <span>Made with love for food lovers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 🛍️ Order Modal -->
+    <div id="orderModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div id="modalContent"
+            class="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full transform scale-95 opacity-0 transition-all duration-200">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">🛒 Place Your Order</h3>
+                <button id="closeModal"
+                    class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-2xl font-bold">
+                    ×
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <form id="orderForm" class="p-6">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Item Name</label>
+                    <input type="text" id="itemName"
+                        class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                        readonly>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Customer Name <span
+                            class="text-red-500">*</span></label>
+                    <input type="text" id="customerName" required
+                        class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                        placeholder="Your Name">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Phone Number <span
+                            class="text-red-500">*</span></label>
+                    <input type="tel" id="customerPhone" required pattern="[0-9]{11,15}"
+                        class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                        placeholder="01XXXXXXXXX">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Address</label>
+                    <input type="text" id="customerAddress"
+                        class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                        placeholder="Your Address (optional)">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Quantity</label>
+                    <div class="flex items-center space-x-3">
+                        <button type="button" id="decreaseQty"
+                            class="w-8 h-8 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500">-</button>
+                        <input type="number" id="quantity" value="1" min="1" max="10"
+                            class="w-16 text-center border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                        <button type="button" id="increaseQty"
+                            class="w-8 h-8 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500">+</button>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Total Price</label>
+                    <div id="totalPrice" class="text-2xl font-bold text-yellow-500">$0.00</div>
+                </div>
+
+                <div id="orderError" class="text-red-500 text-sm mb-2 hidden"></div>
+
+                <div class="flex space-x-3">
+                    <button id="confirmOrder" type="submit"
+                        class="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded-md transition">
+                        Confirm Order
+                    </button>
+                    <button id="closeModal2" type="button"
+                        class="flex-1 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 text-gray-700 dark:text-gray-300 font-semibold py-2 px-4 rounded-md transition">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
